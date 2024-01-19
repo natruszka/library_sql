@@ -16,3 +16,13 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.gatunki
     OWNER to enyxipxk;
+
+-- Trigger: dodaj_gatunek
+
+-- DROP TRIGGER IF EXISTS dodaj_gatunek ON public.gatunki;
+
+CREATE TRIGGER dodaj_gatunek
+    BEFORE INSERT
+    ON public.gatunki
+    FOR EACH ROW
+    EXECUTE FUNCTION public.dodaj_gatunek();

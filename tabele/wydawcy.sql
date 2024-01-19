@@ -15,3 +15,13 @@ TABLESPACE pg_default;
 
 ALTER TABLE IF EXISTS public.wydawcy
     OWNER to enyxipxk;
+
+-- Trigger: dodaj_wydawnictwo
+
+-- DROP TRIGGER IF EXISTS dodaj_wydawnictwo ON public.wydawcy;
+
+CREATE TRIGGER dodaj_wydawnictwo
+    BEFORE INSERT
+    ON public.wydawcy
+    FOR EACH ROW
+    EXECUTE FUNCTION public.dodaj_wydawnictwo();
